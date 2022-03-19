@@ -1,19 +1,38 @@
-# Implementation of the GCBM in Belize
+# Implementation of the GCBM in Colombia
 [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
-GCBM implementation in Belize, initially with a focus on DOM modelling.
+GCBM implementation in Colombia, initially with a focus on DOM modelling.
 
 This project is based on the Standalone Template for the GCBM, downloaded from https://carbon.nfis.org/cbm
 
-**Disclaimer:** The calculations performed in this repository are not official and do not represent the Government of Belize in any way.
+**Disclaimer:** The calculations performed in this repository are not official and do not represent the Government of Colombia in any way.
 
 ## Installation instructions
 
 1. Clone the repository
 
-2. Download the installation tools from "releases" (https://github.com/moja-global/GCBM.Belize/releases/tag/install_tools) and unzip them into Standalone_GCBM/tools folder
+2. Download the installation tools from "releases" (https://github.com/moja-global/GCBM.Colombia/releases/tag/install_tools) and unzip them into Standalone_GCBM/tools folder
 
 The installation instuctions are located in Standalone_GCBM/readme.txt
+
+## Custom configuration
+
+This implementation of the GCBM includes several parameter changes, that were included to adapt the model to Colombia´s local conditions
+
+the Standalone_GCBM/run_all.bat file includes all the steps that were taken to adapt the model, as default, all parameter changes are enabled.
+
+1. A custom Generic Tropical species in created (input_database\add_species_vol_to_bio.py) using a linear volume to biomass conversion factor and proportions of stem, bark, foliage and branges extracted from local literature. 
+
+2. A custom set of root parameters (to convert from AGB to BGB) is applied (input_database\modify_root_parameters.py)
+
+3. A set of decay parameters that was compiled from the scientific literature (input_database\custom_parameters\decay parameters.py) and is used to mofidy the default ones (input_database\modify_decay_parameters.py)
+
+4. A sensitive turnover parameter (tree mortality) was modified (input_database\modify_turnover_parameters.py)
+
+5. The disturbance regime of the spinup procedure was changed to "Clear-cut with slash-burn" every 15 years (input_database\modify_spinup_parameters.py) to refect the historic deforestation of tropical areas in Colombia, for agricultural purposes.
+
+Steps 3, 4 and 5 can be enabled/disabled in the run_all.bat file to perform a sensitivity analysis
+
 
 ## How to Get Involved?  
 
