@@ -1,0 +1,28 @@
+{
+    "layer_type": "GridLayer",
+    "layer_data": "Byte",
+    "nodata": 255,
+    "tileLatSize": 1.0,
+    "tileLonSize": 1.0,
+    "blockLatSize": 0.1,
+    "blockLonSize": 0.1,
+    "cellLatSize": 0.05,
+    "cellLonSize": 0.05,
+    "attributes": {
+        "1": "Tropical very Dry",
+        "2": "Tropical Dry",
+        "3": "Premontane Moist",
+        "4": "Premontane Dry",
+        "5": "Low Montane Moist",
+        "6": "Low Montane very Moist",
+        "7": "Premontane very Moist",
+        "8": "Montane very Moist",
+        "9": "Montane Rain",
+        "10": "Tropical Moist",
+        "11": "Tropical very Moist",
+        "12": "Montane Moist",
+        "13": "Low Montane Dry",
+        "14": "Premontane Rain",
+        "15": "Tropical Rain"
+    }
+}

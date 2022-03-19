@@ -1,0 +1,45 @@
+{
+    "Providers": {
+        "SQLite": {
+            "path": "..\\input_database\\gcbm_input.db",
+            "type": "SQLite"
+        },
+        "RasterTiled": {
+            "layers": [
+                {
+                    "name": "initial_age",
+                    "layer_path": "..\\layers\\tiled\\initial_age_moja.tiff",
+                    "layer_prefix": "initial_age_moja"
+                },
+                {
+                    "name": "LifeZone_C",
+                    "layer_path": "..\\layers\\tiled\\LifeZone_C_moja.tiff",
+                    "layer_prefix": "LifeZone_C_moja"
+                },
+                {
+                    "name": "LifeZone",
+                    "layer_path": "..\\layers\\tiled\\LifeZone_moja.tiff",
+                    "layer_prefix": "LifeZone_moja"
+                },
+                {
+                    "name": "Biome",
+                    "layer_path": "..\\layers\\tiled\\Biome_moja.tiff",
+                    "layer_prefix": "Biome_moja"
+                },
+                {
+                    "name": "mean_annual_temperature",
+                    "layer_path": "..\\layers\\tiled\\mean_annual_temperature_moja.tiff",
+                    "layer_prefix": "mean_annual_temperature_moja"
+                }
+            ],
+            "blockLonSize": 0.1,
+            "tileLatSize": 1.0,
+            "tileLonSize": 1.0,
+            "cellLatSize": 0.05,
+            "cellLonSize": 0.05,
+            "blockLatSize": 0.1,
+            "type": "RasterTiledGDAL",
+            "library": "moja.modules.gdal"
+        }
+    }
+}
