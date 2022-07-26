@@ -128,7 +128,7 @@ p <- ggplot(filter(pools_full,LifeZone=="Tropical Dry"),aes(x=year,y=pool_tc_per
 
 p
 
-ggsave(file=paste0("Figures/Belize_Sensitivity_TropicalDry.png"), width=300,height=180,units="mm",dpi=300)
+ggsave(file=paste0("Figures/Colombia_Sensitivity_TropicalDry.png"), width=300,height=180,units="mm",dpi=300)
 
 # Tropical Moist
 p <- ggplot(filter(pools_full,LifeZone=="Tropical Moist"),aes(x=year,y=pool_tc_per_ha,fill=indicator))+
@@ -142,10 +142,10 @@ p <- ggplot(filter(pools_full,LifeZone=="Tropical Moist"),aes(x=year,y=pool_tc_p
 
 p
 
-ggsave(file=paste0("Figures/Belize_Sensitivity_TropicalMoist.png"), width=300,height=180,units="mm",dpi=300)
+ggsave(file=paste0("Figures/Colombia_Sensitivity_TropicalMoist.png"), width=300,height=180,units="mm",dpi=300)
 
 # Tropical Premontane wet
-p <- ggplot(filter(pools_full,LifeZone=="Tropical Premontane Wet"),aes(x=year,y=pool_tc_per_ha,fill=indicator))+
+p <- ggplot(filter(pools_full,LifeZone=="Tropical Premontane Wet, Transition to Basal - Pacific"),aes(x=year,y=pool_tc_per_ha,fill=indicator))+
   geom_area() +
   facet_grid(indicator~run,labeller = label_wrap_gen(width=7)) +
   ylab("Carbon Stock (ton C / ha)") +
@@ -156,7 +156,7 @@ theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
 
 p
 
-ggsave(file=paste0("Figures/Belize_Sensitivity_TropicalPremontane.png"), width=300,height=180,units="mm",dpi=300)
+ggsave(file=paste0("Figures/Colombia_Sensitivity_TropicalPremontaneWetTransitiontoBasal-Pacific.png"), width=300,height=180,units="mm",dpi=300)
                   
 
 
