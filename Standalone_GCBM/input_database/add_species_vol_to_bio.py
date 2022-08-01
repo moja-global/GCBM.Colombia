@@ -13,6 +13,10 @@ if __name__ == "__main__":
     
     if not os.path.exists(args.input_db_path):
         sys.exit("File not found: {}".format(args.input_db_path))
+
+    logger = logging.getLogger()
+    handler = logging.FileHandler(os.path.join('logs', 'add_species_vol_to_bio.log'))
+    logger.addHandler(handler)
     
     with sqlite3.connect(args.input_db_path) as conn:
             
