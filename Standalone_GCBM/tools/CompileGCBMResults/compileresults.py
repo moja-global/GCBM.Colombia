@@ -229,6 +229,11 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, stream=sys.stdout, format="%(asctime)s %(message)s",
                         datefmt="%m/%d %H:%M:%S")
 
+    # set logger to write to file
+    logger = logging.getLogger()
+    handler = logging.FileHandler(os.path.join('..','..','logs', 'compile_results.log'))
+    logger.addHandler(handler)
+
     parser = ArgumentParser(description="Produce reporting tables from raw GCBM results. For connection strings, "
                                         "see https://docs.sqlalchemy.org/en/latest/core/engines.html#database-urls")
 
