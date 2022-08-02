@@ -1,0 +1,192 @@
+schema: '2.0'
+stages:
+  tiler:
+    cmd: C:\Develop\Python\Python37\python.exe ..\..\tools\Tiler\tiler.py
+    deps:
+    - path: ..\..\tools\Tiler\tiler.py
+      md5: 8c2161d58c95557f4e5fed8dd2c77374
+      size: 4615
+    - path: ..\raw\environment
+      md5: 9e643f512dd403ae79e716597512803f.dir
+      size: 11695968
+      nfiles: 2
+    - path: ..\raw\inventory
+      md5: 20f5718d284074471bcd027ad8efb09b.dir
+      size: 12969677
+      nfiles: 12
+    outs:
+    - path: ..\..\logs\tiler_log.txt
+      md5: 2f25bf4ddc60f28f796029299bbc0ffa
+      size: 269
+  recliner2gcbm_x64:
+    cmd: tools\Recliner2GCBM-x64\Recliner2GCBM.exe -c input_database\recliner2gcbm_config.json
+      input_database\gcbm_input >> logs\recliner_log.txt
+    deps:
+    - path: input_database\ArchiveIndex_Beta_Install.mdb
+      md5: cd2c5c746b9e58b10625848874852d02
+      size: 3825664
+    - path: input_database\Growth_Curves.csv
+      md5: 709008c1ed0f52e638be9b123b3bd891
+      size: 15225
+    - path: input_database\gcbm_input.db
+      md5: 49b552ebce02066979768c3e5f5b56b6
+      size: 1544192
+    - path: input_database\recliner2gcbm_config.json
+      md5: 2330cdd4e564c0fb85cd49cef2961ec2
+      size: 6251
+    - path: logs\tiler_log.txt
+      md5: 2f25bf4ddc60f28f796029299bbc0ffa
+      size: 269
+    - path: tools\Recliner2GCBM-x86\Recliner2GCBM.exe
+      md5: 1b468f316c99530cea3ee62e82959a46
+      size: 7168
+    outs:
+    - path: logs\recliner_log.txt
+      md5: 575f44e3235e469da7e2ff1671b932b3
+      size: 1425
+  add_species_vol_to_bio:
+    cmd: C:\Develop\Python\Python37\python.exe input_database\add_species_vol_to_bio.py
+      input_database\gcbm_input.db
+    deps:
+    - path: input_database\add_species_vol_to_bio.py
+      md5: d95c76fc1e55f6948579ba87646a9552
+      size: 3165
+    - path: input_database\gcbm_input.db
+      md5: 069a4820eabde78fbe9b44da17148b97
+      size: 1544192
+    - path: logs\recliner_log.txt
+      md5: 575f44e3235e469da7e2ff1671b932b3
+      size: 1425
+    outs:
+    - path: logs\add_species_vol_to_bio.log
+      md5: fe307d5fba61060ad02a673a37efd3f7
+      size: 65
+  modify_root_parameters:
+    cmd: C:\Develop\Python\Python37\python.exe input_database\modify_root_parameters.py
+      input_database\gcbm_input.db
+    deps:
+    - path: input_database\gcbm_input.db
+      md5: af5d41c34c83141e5e24362fc177df88
+      size: 1544192
+    - path: input_database\modify_root_parameters.py
+      md5: e56ae2acb9d64a3c5a075ef55930313d
+      size: 1223
+    - path: logs\add_species_vol_to_bio.log
+      md5: fe307d5fba61060ad02a673a37efd3f7
+      size: 65
+    outs:
+    - path: logs\modify_root_parameters.log
+      md5: 92f7cce8bc443ac4ce24a728549d67d1
+      size: 38
+  modify_decay_parameters:
+    cmd: C:\Develop\Python\Python37\python.exe input_database\modify_decay_parameters.py
+      input_database\gcbm_input.db
+    deps:
+    - path: input_database\custom_parameters\decay_parameters.csv
+      md5: 6c21ebbe9e192e5502f5510ddb89542e
+      size: 1496
+    - path: input_database\gcbm_input.db
+      md5: 40aedd9955565ad327ad2612866fce29
+      size: 1544192
+    - path: input_database\modify_decay_parameters.py
+      md5: 7abbba20a625a82659a49da12466ea00
+      size: 1398
+    - path: logs\modify_root_parameters.log
+      md5: 92f7cce8bc443ac4ce24a728549d67d1
+      size: 38
+    outs:
+    - path: logs\modify_decay_parameters.log
+      md5: 8df8b297f0a3d3c1bc8c789a1d635eae
+      size: 74
+  modify_turnover_parameters:
+    cmd: C:\Develop\Python\Python37\python.exe input_database\modify_turnover_parameters.py
+      input_database\gcbm_input.db
+    deps:
+    - path: input_database\custom_parameters\turnover_parameters.csv
+      md5: 854a070d01b3cedc5a54e00906669ca2
+      size: 1023
+    - path: input_database\gcbm_input.db
+      md5: a0d46efd771a8b787797ea9148782645
+      size: 1544192
+    - path: input_database\modify_turnover_parameters.py
+      md5: e2e19493c84e8a912e892a1fc317ab94
+      size: 1411
+    - path: logs\modify_decay_parameters.log
+      md5: 8df8b297f0a3d3c1bc8c789a1d635eae
+      size: 74
+    outs:
+    - path: logs\modify_turnover_parameters.log
+      md5: 45c435ee5d044ef2176952ef852124b6
+      size: 77
+  modify_spinup_parameters:
+    cmd: C:\Develop\Python\Python37\python.exe input_database\modify_spinup_parameters.py
+      input_database\gcbm_input.db
+    deps:
+    - path: input_database\gcbm_input.db
+      md5: 66d033044cc83190f0f7e57be28d2b2f
+      size: 1544192
+    - path: input_database\modify_spinup_parameters.py
+      md5: d8b4841f9fbf0aeca84a59e20da20a73
+      size: 1349
+    - path: logs\modify_turnover_parameters.log
+      md5: 45c435ee5d044ef2176952ef852124b6
+      size: 77
+    outs:
+    - path: logs\modify_spinup_parameters.log
+      md5: c422efacc5b4b98b6b37ceaa5f5b5b9a
+      size: 32
+  update_gcbm_configuration:
+    cmd: update_gcbm_configuration.bat
+    deps:
+    - path: ..\input_database\gcbm_input.db
+      md5: 66d033044cc83190f0f7e57be28d2b2f
+      size: 1544192
+    - path: ..\layers\tiled
+      md5: b62e2ef2c4785a5dafe9d731051a61ba.dir
+      size: 135883
+      nfiles: 17
+    - path: ..\logs\modify_spinup_parameters.log
+      md5: c422efacc5b4b98b6b37ceaa5f5b5b9a
+      size: 32
+    - path: ..\tools\tiler\update_gcbm_config.py
+      md5: 3e04cbc0ee3588cc13f711750b8cda1e
+      size: 18002
+    - path: templates
+      md5: fb87524d28d36f8d044e06c8bb8d10c8.dir
+      size: 60928
+      nfiles: 8
+    - path: update_gcbm_configuration.bat
+      md5: fdf70bd20ab1709935d11a647152efc7
+      size: 1038
+    outs:
+    - path: ..\logs\update_gcbm_config.log
+      md5: 7a65580fa345d2a9d23be68f43bd7b9a
+      size: 695
+  run_gcbm:
+    cmd: run_gcbm.bat
+    deps:
+    - path: ..\input_database\gcbm_input.db
+      md5: 66d033044cc83190f0f7e57be28d2b2f
+      size: 1544192
+    - path: ..\logs\update_gcbm_config.log
+      md5: 7a65580fa345d2a9d23be68f43bd7b9a
+      size: 695
+    - path: ..\tools\GCBM\moja.cli.exe
+      md5: 22ea736fd836612c2d9a8330572cdcff
+      size: 125440
+    - path: gcbm_config.cfg
+      md5: 4ba9c157d6b3d8462bae8be993063fcc
+      size: 176
+    - path: output\gcbm_output.db
+      md5: 4327937977c921f89f0adef7bf8c79fc
+      size: 1155072
+    - path: provider_config.json
+      md5: e921f98f729aec1c8510ec02a9a4b134
+      size: 1611
+    - path: run_gcbm.bat
+      md5: d850f4fa2697cb2eaa87e00b553768c8
+      size: 789
+    outs:
+    - path: ..\logs\Moja_Debug.log
+      md5: 05a055aab0b45574e44bc6616ada6e0a
+      size: 6420688
