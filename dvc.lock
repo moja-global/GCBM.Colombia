@@ -178,7 +178,7 @@ stages:
       md5: 4ba9c157d6b3d8462bae8be993063fcc
       size: 176
     - path: output\gcbm_output.db
-      md5: 4327937977c921f89f0adef7bf8c79fc
+      md5: e6b490c2869e46ead1176e34bc3b33eb
       size: 1155072
     - path: provider_config.json
       md5: e921f98f729aec1c8510ec02a9a4b134
@@ -188,5 +188,80 @@ stages:
       size: 789
     outs:
     - path: ..\logs\Moja_Debug.log
-      md5: 05a055aab0b45574e44bc6616ada6e0a
+      md5: f7e65ebdc52a1d81c8889d928d2351a2
       size: 6420688
+  create_tiffs:
+    cmd: create_tiffs.bat
+    deps:
+    - path: ..\..\gcbm_project\output
+      md5: c1a0234a2e13b72b40f99bfc7da6ade3.dir
+      size: 13841922
+      nfiles: 17419
+    - path: ..\..\logs\Moja_Debug.log
+      md5: f7e65ebdc52a1d81c8889d928d2351a2
+      size: 6420688
+    - path: create_tiffs.bat
+      md5: 7afea9d404dabd2efcd50ef3bde0f962
+      size: 1034
+    - path: create_tiffs.py
+      md5: 24fe644eb30b67b82ea38f3c6e6211ad
+      size: 5675
+    outs:
+    - path: ..\..\logs\create_tiffs.log
+      md5: 5d436c573bd7d574932c7754a2996615
+      size: 1505
+    - path: ..\..\processed_output\spatial
+      md5: 13023b38b7ed7c53dd7f4716a62acf35.dir
+      size: 2902504
+      nfiles: 22
+  compile_results:
+    cmd: compileGCBMResults.bat
+    deps:
+    - path: ..\..\gcbm_project\output\gcbm_output.db
+      md5: 15a40f62e4cdad0ce8ffd68ca4f5ea95
+      size: 4710400
+    - path: ..\..\logs\create_tiffs.log
+      md5: 5d436c573bd7d574932c7754a2996615
+      size: 1505
+    - path: ..\..\processed_output\compiled_gcbm_output.db
+      md5: 8d9f29583b123a5730505ea2f84c5ec5
+      size: 3444736
+    - path: compileGCBMResults.bat
+      md5: 9d9372e41d38eac02690ea9104cdaeba
+      size: 551
+    - path: compileresults.json
+      md5: c1664af923128ae8641b521fc330f439
+      size: 17854
+    - path: compileresults.py
+      md5: 1dfacf220646943ad812849ab1b00e7a
+      size: 14328
+    outs:
+    - path: ..\..\logs\compile_results.log
+      md5: be023cf95336cdebe1201cb7c510e40b
+      size: 1131
+  postprocessing:
+    cmd: C:\Develop\R-4.1.3\bin\R.exe CMD BATCH Summarize_DOM_Stocks.R
+    deps:
+    - path: ..\Standalone_GCBM\logs\compile_results.log
+      md5: be023cf95336cdebe1201cb7c510e40b
+      size: 1131
+    - path: ..\Standalone_GCBM\processed_output\compiled_gcbm_output.db
+      md5: 8d9f29583b123a5730505ea2f84c5ec5
+      size: 3444736
+    - path: Summarize_DOM_Stocks.R
+      md5: 60d23dfcae2ee05d00a5d4cb630fde9b
+      size: 5878
+    - path: Tables
+      md5: fc358c185ed3b76d7cbf3fb20da8402b.dir
+      size: 1334397
+      nfiles: 17
+    outs:
+    - path: Figures/Colombia_Sensitivity_TropicalDry.png
+      md5: 89bf7fbc38ec80cde2be50dd678b4506
+      size: 106810
+    - path: Figures/Colombia_Sensitivity_TropicalMoist.png
+      md5: 2db10cae78fac905aad4e2c8600da177
+      size: 108235
+    - path: Figures/Colombia_Sensitivity_TropicalPremontaneWetTransitiontoBasal-Pacific.png
+      md5: 8d8f4f65aba1ca8fc5e3a4f0513d00b9
+      size: 113585

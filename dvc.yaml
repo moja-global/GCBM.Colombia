@@ -97,3 +97,41 @@ stages:
     - run_gcbm.bat
     outs:
     - ..\logs\Moja_Debug.log
+  create_tiffs:
+    cmd: create_tiffs.bat
+    wdir: Standalone_GCBM/tools/CompileGCBMSpatialOutput
+    deps:
+    - ..\..\gcbm_project\output
+    - ..\..\logs\Moja_Debug.log
+    - create_tiffs.bat
+    - create_tiffs.py
+    outs:
+    - ..\..\logs\create_tiffs.log
+    - ..\..\processed_output\spatial
+  compile_results:
+    cmd: compileGCBMResults.bat
+    wdir: Standalone_GCBM/tools/CompileGCBMResults
+    deps:
+    - ..\..\gcbm_project\output\gcbm_output.db
+    - ..\..\logs\create_tiffs.log
+    - ..\..\processed_output\compiled_gcbm_output.db
+    - compileGCBMResults.bat
+    - compileresults.json
+    - compileresults.py
+    outs:
+    - ..\..\logs\compile_results.log
+  postprocessing:
+    cmd: ${R} CMD BATCH Summarize_DOM_Stocks.R
+    wdir: Postprocessing
+    deps:
+    - ..\Standalone_GCBM\logs\compile_results.log
+    - ..\Standalone_GCBM\processed_output\compiled_gcbm_output.db
+    - Summarize_DOM_Stocks.R
+    - Tables
+    plots:
+    - Figures/Colombia_Sensitivity_TropicalDry.png:
+        cache: false
+    - Figures/Colombia_Sensitivity_TropicalMoist.png:
+        cache: false
+    - Figures/Colombia_Sensitivity_TropicalPremontaneWetTransitiontoBasal-Pacific.png:
+        cache: false
