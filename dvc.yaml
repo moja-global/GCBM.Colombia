@@ -121,7 +121,9 @@ stages:
     outs:
     - ..\..\logs\compile_results.log
   postprocessing:
-    cmd: ${R} CMD BATCH Summarize_DOM_Stocks.R
+    cmd: 
+    - ${R} CMD BATCH Summarize_DOM_Stocks.R
+    - ${python} analyze.py
     wdir: Postprocessing
     deps:
     - ..\Standalone_GCBM\logs\compile_results.log
@@ -134,4 +136,7 @@ stages:
     - Figures/Colombia_Sensitivity_TropicalMoist.png:
         cache: false
     - Figures/Colombia_Sensitivity_TropicalPremontaneWetTransitiontoBasal-Pacific.png:
+        cache: false
+    metrics:
+    - metrics:
         cache: false

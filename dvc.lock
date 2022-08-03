@@ -178,7 +178,7 @@ stages:
       md5: 4ba9c157d6b3d8462bae8be993063fcc
       size: 176
     - path: output\gcbm_output.db
-      md5: e6b490c2869e46ead1176e34bc3b33eb
+      md5: 52477d56ea0d50278b4ce002de48e19e
       size: 1155072
     - path: provider_config.json
       md5: e921f98f729aec1c8510ec02a9a4b134
@@ -188,17 +188,17 @@ stages:
       size: 789
     outs:
     - path: ..\logs\Moja_Debug.log
-      md5: f7e65ebdc52a1d81c8889d928d2351a2
+      md5: dbf1fb4f3ae67287135da1d3b04e92e2
       size: 6420688
   create_tiffs:
     cmd: create_tiffs.bat
     deps:
     - path: ..\..\gcbm_project\output
-      md5: c1a0234a2e13b72b40f99bfc7da6ade3.dir
-      size: 13841922
-      nfiles: 17419
+      md5: 32d18de9d8c78288b33e383f03b54df7.dir
+      size: 13696153
+      nfiles: 17219
     - path: ..\..\logs\Moja_Debug.log
-      md5: f7e65ebdc52a1d81c8889d928d2351a2
+      md5: dbf1fb4f3ae67287135da1d3b04e92e2
       size: 6420688
     - path: create_tiffs.bat
       md5: 7afea9d404dabd2efcd50ef3bde0f962
@@ -208,7 +208,7 @@ stages:
       size: 5675
     outs:
     - path: ..\..\logs\create_tiffs.log
-      md5: 5d436c573bd7d574932c7754a2996615
+      md5: 52314bb821ab423757e946303ccee829
       size: 1505
     - path: ..\..\processed_output\spatial
       md5: 13023b38b7ed7c53dd7f4716a62acf35.dir
@@ -218,13 +218,13 @@ stages:
     cmd: compileGCBMResults.bat
     deps:
     - path: ..\..\gcbm_project\output\gcbm_output.db
-      md5: 15a40f62e4cdad0ce8ffd68ca4f5ea95
+      md5: a7ba73ac4feeee6d261c6f4b81234bd7
       size: 4710400
     - path: ..\..\logs\create_tiffs.log
-      md5: 5d436c573bd7d574932c7754a2996615
+      md5: 52314bb821ab423757e946303ccee829
       size: 1505
     - path: ..\..\processed_output\compiled_gcbm_output.db
-      md5: 8d9f29583b123a5730505ea2f84c5ec5
+      md5: 528de38505e7d93e8068ea5c5f707680
       size: 3444736
     - path: compileGCBMResults.bat
       md5: 9d9372e41d38eac02690ea9104cdaeba
