@@ -9,6 +9,11 @@ if __name__ == "__main__":
     parser = ArgumentParser(description="Modify the root parameter")
     parser.add_argument("input_db_path", help="GCBM input database path", type=os.path.abspath)
     args = parser.parse_args()
+
+    # Setup logger to write to file
+    logger = logging.getLogger()
+    handler = logging.FileHandler(os.path.join('logs', 'modify_root_parameters.log'))
+    logger.addHandler(handler)
     
     if not os.path.exists(args.input_db_path):
         sys.exit("File not found: {}".format(args.input_db_path))
