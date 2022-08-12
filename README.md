@@ -64,7 +64,7 @@ Steps 3, 4 and 5 can be enabled/disabled in the `run_all.bat` file to perform a 
 
 1. Clone the `docker-setup` branch of [GCBM.Colombia](https://github.com/moja-global/GCBM.Colombia) using the command
 
-      ```git clone -b docker-setup https://github.com/Namyalg/GCBM.Colombia```
+      ```git clone -b docker-setup https://github.com/moja-global/GCBM.Colombia```
 
 2. Navigate into `GCBM.Colombia` 
 
