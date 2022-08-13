@@ -75,3 +75,16 @@ The commands are written assuming the path to python3.7 is `c:\python37`, if pyt
 | `Standalone_GCBM\gcbm_project` | `run_gcbm.bat` | 1. Run the GCBM model <br> 2. Project configuration is split between multiple files listed in `gcbm_project\gcbm_config.cfg` <br> 3. Data source configuration (spatial layers + SQLite) is in `gcbm_project\provider_config.json`| Logs generated in `Standalone_GCBM\logs\Moja_Debug.log` |
 | `Standalone_GCBM\tools\CompileGCBMSpatialOutput` | `create_tiffs.bat` | 1. Compile the spatial output <br> 2.  Generates tiff layers from raw GCBM spatial output <br> 3. Output is a tiff layer per indicator and timestep in `processed_output\spatial` | Logs written into `Standalone_GCBM\logs\create_tiffs.log`, output to `Standalone_GCBM\processed_output\spatial` |
 | `Standalone_GCBM\tools\CompileGCBMResults` | `compileGCBMResults.bat` |1. Compile the GCBM results <br> 2. Turns the raw GCBM output database into a more user-friendly format containing most of the familiar indicators from the CBM3 Toolbox <br> 3. Produces `processed_output\compiled_gcbm_output.db` |
+
+## Postprocessing
+
+After the simulation is complete, either by running the `run_all.bat` script or following the step-by-step procedure, for postprocessing, the following steps are to be followed:
+
+1. [Install R](https://www.datacamp.com/tutorial/installing-R-windows-mac-ubuntu) based on the OS
+2. Create a folder `Figures` in `Postprocessing`
+2. Get the path to the R executable, e.g. `c:\"Program Files"\R\R-4.2.1\bin\R.exe`, on Windows
+3. Navigate to the `Standalone_GCBM\Postprocessing` and execute `c:\"Program Files"\R\R-4.2.1\bin\R.exe CMD BATCH Summarize_DOM_Stocks.R`
+This generates the plots `Figures\Colombia_Sensitivity_TropicalDry`, `Figures\Colombia_Sensitivity_TropicalMoist.png`
+and `Figures\Colombia_Sensitivity_TropicalPremontaneWetTransitiontoBasal-Pacific.png`
+
+The logs are written into `Summarize_DOM_Stocks.Rout`, missing R packages, if any, can be installed by following the steps mentioned here: https://www.datacamp.com/tutorial/r-packages-guide
