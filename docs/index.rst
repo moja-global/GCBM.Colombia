@@ -9,6 +9,8 @@ This project is based on the `Standalone Template for the GCBM <https://carbon.n
 .. toctree::
    :hidden:
 
+   about_colombia/index.rst
    run_simulation/index.rst
+   postprocessing/index.rst
 
 
