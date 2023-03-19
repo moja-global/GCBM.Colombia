@@ -1,13 +1,13 @@
 Postprocessing
 ==============
 
-After the simulation is complete, either by running the **run_all.bat** script or following the step-by-step procedure, for postprocessing, the following steps are to be followed:
+After the simulation is complete, either by running the **run_all.bat** script or following the step-by-step procedure for postprocessing, the following steps are to be followed:
 
 1. Install `R <https://www.r-project.org/>`_ based on the OS
 
-2. Get the path to the R executable, e.g. **c:\\"Program Files"\R\R-4.2.1\bin\R.exe**, on Windows
+2. Get the `path <https://support.posit.co/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE#:~:text=When%20R%20is%20installed%20from,bin%2FR%20(MacPorts)>`_ to the R executable, e.g. **c:\\"Program Files"\R\R-4.2.1\bin\R.exe**, on Windows
 
-3. Navigate to the `Standalone_GCBM\\Postprocessing` and execute **c:\\"Program Files"\\R\\R-4.2.1\\bin\\R.exe CMD BATCH Summarize_DOM_Stocks.R** .
+3. Navigate to the directory `Standalone_GCBM\\Postprocessing` and execute **c:\\"Program Files"\\R\\R-4.2.1\\bin\\R.exe CMD BATCH Summarize_DOM_Stocks.R** .
 
 This generates the plots `Figures\\Colombia_Sensitivity_TropicalPremontaneWetTransitiontoBasal-Pacific.png`, 
 `Figures\\Colombia_Sensitivity_TropicalMoist.png` and `Figures\\Colombia_Sensitivity_TropicalDry.png`

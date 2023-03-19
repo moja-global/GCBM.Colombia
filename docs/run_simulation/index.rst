@@ -1,6 +1,14 @@
 Running the Colombia simulation 
 ===============================
 
+:Authors:
+    Tony J. (Tibs) Ibbs,
+    David Goodger
+    (and sundry other good-natured folks)
+
+:Version: 1.0 of 2001/08/08
+:Dedication: To my father.
+
 A local simulation of the GCBM model is run for the Colombia region can be run locally.
 
 The repository is located at: https://github.com/moja-global/GCBM.Colombia

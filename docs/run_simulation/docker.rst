@@ -12,7 +12,7 @@ Steps to run the Colombia simulation in a docker environment
        git clone -b docker-setup https://github.com/moja-global/GCBM.Colombia
 
 
-2. Navigate into `GCBM.Colombia`
+2. Navigate into directory `GCBM.Colombia`
 
 ..  code-block:: bash
 
@@ -55,5 +55,5 @@ Change the docker version in the file `./docker-compose.yml` to an appropriate v
        /opt/gcbm/moja.cli --config_file gcbm_config.cfg --config_provider provider_config.json
 
 
-If there are existing images cached on your machine you may need to docker pull ghcr.io/moja-global/rest_api_gcbm:master 
+If there are existing images cached on your machine, you may need to docker pull ghcr.io/moja-global/rest_api_gcbm:master 
 and build the container using `docker-compose -d --force-recreate`
